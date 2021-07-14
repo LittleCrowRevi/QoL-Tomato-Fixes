@@ -1,16 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
+  "id": "tomatofixes",
+  "version": "1.1.0",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Tomato Fixes",
+  "description": "A tomato fix for all our needs",
   "authors": [
-    "Me!"
+    "A Little Crow"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/LittleCrowRevi/Fixes-for-a-Tomato"
   },
 
   "license": "CC0-1.0",
@@ -19,11 +18,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "littlecrow.TomatoFix"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "tomatofixes.mixins.json"
   ],
 
   "depends": {
