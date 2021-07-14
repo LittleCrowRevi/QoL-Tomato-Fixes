@@ -1,8 +1,10 @@
-# Fabric Example Mod
+# Tomato Fixes | Fabric
 
-## Setup
+Purpose
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Fixes and additions for the playthrough of the modpack AOF3 and maybe some others later
+
+
 
 ## License
 
