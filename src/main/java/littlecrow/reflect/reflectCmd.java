@@ -11,6 +11,8 @@ import java.util.List;
 
 // not used since the Age of Exile mod is just to nested to use with reflection
 // I tried but honestly a fork would be much easier
+// Deprecated since I didn't got it work becauss Age of Exile is just too....
+@Deprecated
 public class reflectCmd {
 
         public reflectCmd() throws Exception {
@@ -44,8 +46,6 @@ public class reflectCmd {
             //not really needed anymore since I created a little enum myself
             Class<?> SupportGemTags = Class.forName("com.robertx22.age_of_exile.database.data.skill_gem.SupportGemTags");
             List<Class<?>> s = Arrays.asList(SupportGemTags);
-            List<SupportGemTags> listS = Arrays.asList(littlecrow.reflect.SupportGemTags.projectile);
-
             Class<?> StatMod = Class.forName("com.robertx22.age_of_exile.database.data.StatModifier");
             Class<?> Stat = Class.forName("com.robertx22.age_of_exile.aoe_data.database.stats.Stats");
             Class<?> Stat2 = Class.forName("com.robertx22.age_of_exile.database.data.stats.Stat");
@@ -80,23 +80,4 @@ public class reflectCmd {
                     s,
                     StatModifier);
         }
-}
-
-enum SupportGemTags {
-    attack,
-    spell,
-    heal,
-    aggro,
-    damage,
-    projectile;
-}
-
-enum StatAttribute {
-    INT("int"), DEX("dex"), STR("str");
-
-    public String id;
-
-    StatAttribute(String id) {
-        this.id = id;
-    }
 }

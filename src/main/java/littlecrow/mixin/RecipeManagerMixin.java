@@ -14,17 +14,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
+
 @Mixin(RecipeManager.class)
 public class RecipeManagerMixin {
 
     @Inject(method = "apply", at = @At("HEAD"))
     public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
+        /*
         if (tomatofixes.mLoaded) {
             map.put((new Identifier("techreborn:copper_ore")), compRecipes.COPPER_ORE);
             map.put((new Identifier("techreborn:tin_ore")), compRecipes.TIN_ORE);
             map.put((new Identifier("techreborn:silver_ore")), compRecipes.SILVER_ORE);
             map.put((new Identifier("techreborn:lead_ore")), compRecipes.LEAD_ORE);
             map.put((new Identifier("techreborn:sheldonite_ore")), compRecipes.SHELDONITE_ORE);
-        }
+        } */
     }
 }

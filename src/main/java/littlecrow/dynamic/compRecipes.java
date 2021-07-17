@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;
 import net.minecraft.util.Identifier;
 
+@Deprecated
 public class compRecipes {
 
     public static JsonObject COPPER_ORE;
@@ -19,6 +20,7 @@ public class compRecipes {
                 Lists.newArrayList(new Identifier("c", "copper_ores")),
                 Lists.newArrayList("tag"),
                 "techreborn:copper_ore");
+        System.out.println(COPPER_ORE);
 
         TIN_ORE = createJSON.createShapelessRecipeJson(
                 Lists.newArrayList(new Identifier("c", "tin_ores")),

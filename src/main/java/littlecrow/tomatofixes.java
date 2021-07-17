@@ -3,7 +3,7 @@ package littlecrow;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import littlecrow.commands.Warp;
 import littlecrow.commands.modsLoaded;
-import littlecrow.dynamic.compRecipes;
+import littlecrow.commands.thawSnowCmd;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
@@ -11,8 +11,6 @@ import net.minecraft.server.command.ServerCommandSource;
 
 
 public class tomatofixes implements ModInitializer {
-
-
 
     public static Boolean mLoaded = false;
     @Override
@@ -40,12 +38,13 @@ public class tomatofixes implements ModInitializer {
             dispatcher.getRoot().addChild(wNode);
             wNode.addChild(setWarpNode);
             dispatcher.getRoot().addChild(warpNode);
-        });
 
-        if (modsLoaded.isModLoaded("modern_industrialization") || modsLoaded.isModLoaded("techreborn") || modsLoaded.isModLoaded("indrev")) {
-            mLoaded = true;
-            compRecipes.createRecipes();
-        }
+            LiteralCommandNode<ServerCommandSource> thawSnowNode = CommandManager
+                    .literal("thaw")
+                    .executes(thawSnowCmd::thawSnow)
+                    .build();
+            dispatcher.getRoot().addChild(thawSnowNode);
+        });
 
     }
 
