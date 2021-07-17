@@ -3,12 +3,19 @@
   "id": "tomatofixes",
   "version": "1.1.0",
 
+  "custom": {
+    "cardinal.components": [
+      "tomatofixes:Warp"
+    ]
+  },
+
   "name": "Tomato Fixes",
   "description": "A tomato fix for all our needs",
   "authors": [
     "A Little Crow"
   ],
   "contact": {
+    "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/LittleCrowRevi/Fixes-for-a-Tomato"
   },
 
@@ -18,7 +25,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "littlecrow.TomatoFix"
+      "littlecrow.tomatofixes"
     ]
   },
   "mixins": [

@@ -16,16 +16,24 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+
+	maven {
+		name = "Ladysnake Mods"
+		url = 'https://ladysnake.jfrog.io/artifactory/mods'
+	}
 }
 
 dependencies {
-	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	minecraft "com.mojang:minecraft:1.16.5"
+	mappings "net.fabricmc:yarn:1.16.5+build.10:v2"
+	modImplementation "net.fabricmc:fabric-loader:0.11.6"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	//Fabric api
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.37.0+1.16"
+
+	modApi "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:2.8.3"
+	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-world:2.8.3"
+	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-scoreboard:2.8.3"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.

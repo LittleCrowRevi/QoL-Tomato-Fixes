@@ -1,7 +1,7 @@
 package littlecrow.mixin;
 
 import com.google.gson.JsonElement;
-import littlecrow.TomatoFix;
+import littlecrow.tomatofixes;
 import littlecrow.dynamic.compRecipes;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.resource.ResourceManager;
@@ -19,7 +19,7 @@ public class RecipeManagerMixin {
 
     @Inject(method = "apply", at = @At("HEAD"))
     public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
-        if (TomatoFix.mLoaded) {
+        if (tomatofixes.mLoaded) {
             map.put((new Identifier("techreborn:copper_ore")), compRecipes.COPPER_ORE);
             map.put((new Identifier("techreborn:tin_ore")), compRecipes.TIN_ORE);
             map.put((new Identifier("techreborn:silver_ore")), compRecipes.SILVER_ORE);
