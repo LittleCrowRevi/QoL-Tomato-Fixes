@@ -31,8 +31,9 @@ public class thawSnowCmd {
              for (long z = (long) (player.getZ() - 8); z <= player.getZ() + 8; z++) {
                  BlockPos pos = new BlockPos(x, player.getY(), z);
                  Block snow = Registry.BLOCK.get(new Identifier("minecraft", "snow"));
+                 Block seasonalSnow = Registry.BLOCK.get(new Identifier("seasons:seasonal_snow"));
                  Block e = world.getBlockState(pos).getBlock();
-                 if (e != null && e.is(snow)) {
+                 if (e != null && (e.is(snow) || e.is(seasonalSnow))) {
                      snowCount++;
                      world.breakBlock(pos, false);
                  }
@@ -40,7 +41,8 @@ public class thawSnowCmd {
         }
         source.getMinecraftServer()
                 .getPlayerManager()
-                .broadcastChatMessage(new LiteralText("removed " + snowCount + " snow.").formatted(Formatting.BLUE), MessageType.SYSTEM, player.getUuid());
+                .broadcastChatMessage(new LiteralText("removed " + snowCount + " snow.")
+                        .formatted(Formatting.BLUE), MessageType.SYSTEM, player.getUuid());
         return 1;
     }
 }
