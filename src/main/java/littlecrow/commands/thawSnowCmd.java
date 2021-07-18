@@ -30,11 +30,8 @@ public class thawSnowCmd {
         for (long x = (long) player.getX() - 8; x <= player.getX() + 8; x++) {
              for (long z = (long) (player.getZ() - 8); z <= player.getZ() + 8; z++) {
                  BlockPos pos = new BlockPos(x, player.getY(), z);
-                 System.out.println(pos);
                  Block snow = Registry.BLOCK.get(new Identifier("minecraft", "snow"));
-                 System.out.println(snow);
                  Block e = world.getBlockState(pos).getBlock();
-                 System.out.println(e);
                  if (e != null && e.is(snow)) {
                      snowCount++;
                      world.breakBlock(pos, false);
