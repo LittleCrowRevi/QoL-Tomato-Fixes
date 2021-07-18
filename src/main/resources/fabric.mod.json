@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "tomatofixes",
-  "version": "1.1.0",
+  "version": "1.1.2",
 
   "custom": {
     "cardinal.components": [
