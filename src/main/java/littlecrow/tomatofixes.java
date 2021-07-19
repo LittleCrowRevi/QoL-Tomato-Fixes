@@ -1,5 +1,6 @@
 package littlecrow;
 
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import littlecrow.commands.Warp;
 import littlecrow.commands.modsLoaded;
@@ -9,6 +10,8 @@ import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 
+import static net.minecraft.server.command.CommandManager.argument;
+
 
 public class tomatofixes implements ModInitializer {
 
@@ -16,8 +19,8 @@ public class tomatofixes implements ModInitializer {
     @Override
     public void onInitialize() {
 
-
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+
             LiteralCommandNode<ServerCommandSource> modLoadNode = CommandManager
                     .literal("mods")
                     .executes(modsLoaded::conf)
@@ -41,7 +44,12 @@ public class tomatofixes implements ModInitializer {
 
             LiteralCommandNode<ServerCommandSource> thawSnowNode = CommandManager
                     .literal("thaw")
-                    .executes(thawSnowCmd::thawSnow)
+                    .then(argument("number", IntegerArgumentType.integer())
+                            .executes(context -> {
+                                thawSnowCmd.thawSnow(context, IntegerArgumentType.getInteger(context, "number"));
+                                return 1;
+                            }))
+                    .executes(thawSnowCmd::thawSnow2)
                     .build();
             dispatcher.getRoot().addChild(thawSnowNode);
         });
