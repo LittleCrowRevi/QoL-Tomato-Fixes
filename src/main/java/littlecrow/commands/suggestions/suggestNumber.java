@@ -1,4 +1,4 @@
-package littlecrow.commands.suggsetsions;
+package littlecrow.commands.suggestions;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;

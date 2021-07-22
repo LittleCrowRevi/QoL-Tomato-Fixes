@@ -20,12 +20,15 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/tomatofixes/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
       "littlecrow.tomatofixes"
+    ],
+    "client": [
+      "littlecrow.tomatofixesClient"
     ]
   },
   "mixins": [
