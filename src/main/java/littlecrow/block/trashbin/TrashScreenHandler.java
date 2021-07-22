@@ -21,7 +21,6 @@ public class TrashScreenHandler extends ScreenHandler {
     public TrashScreenHandler(int syncID, PlayerInventory playerInventory, Inventory inventory) {
         super(registryBlock.TRASH_SCREEN, syncID);
         checkSize(inventory, 9);
-        System.out.println(inventory);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
 
@@ -52,7 +51,6 @@ public class TrashScreenHandler extends ScreenHandler {
         for (h = 0; h < 9; ++h) {
             this.addSlot(new Slot(playerInventory, h, 8 + h * 18, 142));
         }
-        System.out.println("inv2 " + this.inventory);
 
     }
 

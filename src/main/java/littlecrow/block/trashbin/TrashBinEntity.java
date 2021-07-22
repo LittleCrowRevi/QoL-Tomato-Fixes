@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -13,11 +14,12 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
 import static littlecrow.block.registryBlock.TRASH_BIN_ENTITY;
 
-public class TrashBinEntity extends BlockEntity  implements ImplInventory, NamedScreenHandlerFactory {
+public class TrashBinEntity extends BlockEntity  implements ImplInventory, NamedScreenHandlerFactory, SidedInventory {
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
 
@@ -56,4 +58,19 @@ public class TrashBinEntity extends BlockEntity  implements ImplInventory, Named
         return new TrashScreenHandler(syncId, inv, this);
     }
 
+
+    @Override
+    public int[] getAvailableSlots(Direction side) {
+        return new int[0];
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return false;
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+        return false;
+    }
 }

@@ -6,6 +6,7 @@ import littlecrow.block.trashbin.TrashScreenHandler;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -21,13 +22,14 @@ public class registryBlock {
     public static final Identifier TRASH_ID = new Identifier("tomatofixes:trash_bin");
     public static BlockEntityType<TrashBinEntity> TRASH_BIN_ENTITY;
     public static ScreenHandlerType<TrashScreenHandler> TRASH_SCREEN;
+    public static final Block TRASH_BIN = new TrashBin(FabricBlockSettings.of(Material.WOOD).strength(0.4f));
 
     public static void register() {
 
         TRASH_BIN_ENTITY = Registry.register(
                 Registry.BLOCK_ENTITY_TYPE,
                 TRASH_ID,
-                BlockEntityType.Builder.create(TrashBinEntity::new, TrashBin.TRASH_BIN).build(null));
+                BlockEntityType.Builder.create(TrashBinEntity::new, TRASH_BIN).build(null));
         TRASH_BLOCK = Registry.register(
                 Registry.BLOCK,
                 TRASH_ID,
