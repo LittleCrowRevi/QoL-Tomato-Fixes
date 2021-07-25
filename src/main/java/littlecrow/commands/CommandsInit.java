@@ -37,12 +37,19 @@ public class CommandsInit {
 
             LiteralCommandNode<ServerCommandSource> thawSnowNode = CommandManager
                     .literal("thaw")
-                    .then(argument("number", IntegerArgumentType.integer())
+                    .then(argument("radius", IntegerArgumentType.integer())
+                            .then(argument("height", IntegerArgumentType.integer())
+                                    .executes(ctx -> {
+                                        int r = IntegerArgumentType.getInteger(ctx, "radius");
+                                        int h = IntegerArgumentType.getInteger(ctx, "height");
+                                        thawSnowCmd.thawSnow(ctx, r, h);
+                                        return 1;
+                                    }))
                             .executes(context -> {
-                                thawSnowCmd.thawSnow(context, IntegerArgumentType.getInteger(context, "number"));
+                                thawSnowCmd.thawSnow(context, IntegerArgumentType.getInteger(context, "radius"));
                                 return 1;
                             }))
-                    .executes(thawSnowCmd::thawSnow2)
+                    .executes(thawSnowCmd::thawSnow)
                     .build();
             dispatcher.getRoot().addChild(thawSnowNode);
         });
