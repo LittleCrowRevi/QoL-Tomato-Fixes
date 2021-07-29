@@ -46,7 +46,7 @@ public class thawSnowCmd {
         System.out.println(h);
         int snowCount = 0;
         for (long x = (long) (player.getX() - radius); x <= player.getX() + radius; x++) {
-            for (long y = (long) player.getY() - h / 2; y <= h / 2; y++) {
+            for (long y = (long) player.getY() - (height / 2); y <= h + (height / 2); y++) {
                 for (long z = (long) (player.getZ() - radius); z <= player.getZ() + radius; z++) {
                     BlockPos pos = new BlockPos(x, y, z);
                     Block snow =Registry.BLOCK.get(new Identifier("minecraft", "snow"));
